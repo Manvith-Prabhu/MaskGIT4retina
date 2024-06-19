@@ -1,6 +1,5 @@
-# MaskGIT PyTorch
+# Pytorch implementation of Modified MaskGIT for ODIR-5k
 
-[![GitHub stars](https://img.shields.io/github/stars/valeoai/MaskGIT-pytorch.svg?style=social)](https://github.com/Manvith-Prabhu/MaskGIT4retina.git)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/valeoai/MaskGIT-pytorch/blob/main/colab_demo.ipynb)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt)
 <img src="saved_img/frog.png" alt="drawing" width="25"/>
