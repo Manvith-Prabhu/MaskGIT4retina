@@ -1,0 +1,39 @@
+model:
+  save_path: /home/kwang/mprabhu/Modified_MaskGit/pretrained_maskgit/vq_vae
+  log_dir: /home/kwang/mprabhu/Modified_MaskGit/pretrained_maskgit/vq_vae/log_dir
+  learning_rate: 1.0e-4
+  target: vqgan.models.vqgan.VQModel
+  params:
+    ddconfig:
+      double_z: False
+      z_channels: 256 # 256
+      resolution: 256 
+      in_channels: 3
+      out_ch: 3
+      ch: 128
+      ch_mult: [ 1,1,2,2,4]  # num_down = len(ch_mult)-1
+      num_res_blocks: 2
+      attn_resolutions: [16]
+      dropout: 0.0
+
+    lossconfig:
+      codebook_weight: 5.0
+
+
+  vq_params:
+        num_codes: 4096
+        feature_size: 1024
+        #sync_nu: 2.0,
+        #inplace_optimizer: False
+        #affine_lr: 2.0
+        #beta: 1.0
+        #use_learnable_std: True
+        #replace_freq: 100
+        #norm: l2
+        #cb_norm: l2
+
+data:
+  dataset: custom
+  batch_size: 16
+  max_epoch: 100
+  warm_epoch: 10
