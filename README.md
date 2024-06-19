@@ -80,7 +80,7 @@ To get started with this project, follow these steps:
    MaskGIT:
    ```bash
    python ./Trainer/test_vit.py
-   
+   ```   
 
 ## Demo
 
