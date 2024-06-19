@@ -113,7 +113,7 @@ if __name__ == "__main__":
         with open(path, "r") as f:
             configs = yaml.load(f, Loader=yaml.FullLoader)
         vq_gan = VQ_GAN_Trainer(configs["data"], configs["model"])
-        # vq_gan.fit()
+        vq_gan.fit()
     print(f"{world_size} GPU found")
     args.is_master = True
     args.is_multi_gpus = False
