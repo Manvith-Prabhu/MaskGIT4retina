@@ -52,34 +52,36 @@ To get started with this project, follow these steps:
    conda env create -f environment.yaml
    conda activate maskgit
 
-3. Download the ODIR-5k dataset from Kaggle. Arrange the dataset according to the requirements of ImageFolder API available on Pytorch
+3. Download the ODIR-5k dataset from Kaggle. Arrange the dataset according to the requirements of ImageFolder API available on Pytorch.
 
-4. Train the VQ-VAE using:
+4. (Optional) Download models pretrained on ImageNET:
+
+   ```bash
+   python download_models.py
+
+5. to train from scratch, train the VQ-VAE using:
 
    ```bash
    python main.py --train_config vq_vae
 
-5. Once the VQ-VAE is trained proceed to train MaskGIT after commenting following line of code in main.py:
+6. Once the VQ-VAE is trained proceed to train MaskGIT after commenting following line of code in main.py:
    ```bash
-   vq_gan.fit()
+   # vq_gan.fit()
    
-7. (Opt.) Download Pretrained models  
+7. Train the MaskGIIT usinng:
+   ```bash
+   bash runscript.sh
 
+8. to test VQVAE and MaskGIT:
+   VQ-VAE:
    ```bash
-   python download_models.py
+   python ./Trainer/test_vq_gan.py
+   ```
+   MaskGIT:
+   ```bash
+   python ./Trainer/test_vit.py
    
-8. Resume training for 1 additional epoch
-   ```bash
-   data_folder="/datasets_local/ImageNet/"
-   vit_folder="./pretrained_maskgit/MaskGIT/MaskGIT_ImageNet_256.pth"
-   vqgan_folder="./pretrained_maskgit/VQGAN/"
-   writer_log="./logs/"
-   num_worker=16
-   bsize=64
-   # Single GPU
-   python main.py  --bsize ${bsize} --data-folder "${data_folder}" --vit-folder "${vit_folder}" --vqgan-folder "${vqgan_folder}" --writer-log "${writer_log}" --num_workers ${num_worker} --img-size 256 --epoch 301 --resume
-   # Multiple GPUs single node
-   torchrun --standalone --nnodes=1 --nproc_per_node=gpu main.py  --bsize ${bsize} --data-folder "${data_folder}" --vit-folder "${vit_folder}" --vqgan-folder "${vqgan_folder}" --writer-log "${writer_log}" --num_workers ${num_worker} --img-size 256 --epoch 301 --resume
+
 ## Demo
 
 You are interested only in the inference of the model? You can run the demo_colab.ipynb in google collab! [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/valeoai/MaskGIT-pytorch/blob/main/colab_demo.ipynb) - implemented for ImageNEt and not for Retinal Scans
