@@ -67,7 +67,7 @@ To get started with this project, follow these steps:
    ```bash
    # vq_gan.fit()
    
-7. Train the MaskGIIT usinng:
+7. Create a folder by the name "maskgit" under the folder "pretrained_maskgit". Train the MaskGIIT using:
    ```bash
    bash runscript.sh
 
@@ -100,6 +100,13 @@ The transformer architecture hyperparameters:
 
 The optimizer employed is Adam with a learning rate of 1e-4, utilizing an 'arccos' scheduler for masking. Additionally, during training, I applied a 0% dropout for the CFG.
 
+### Current Performance of VQ-VAE on ODIR 5k
+![sample](Trainer/VQ_VAE_recon/batch_2_image_7.png)
+![sample](Trainer/VQ_VAE_recon/batch_4_image_6.png)
+
+### Current Performance of MaskGIT on ODIR 5k
+![sample](Trainer/MaskGIT_recon/process_bar.png)
+![sample](Trainer/MaskGIT_recon/process_img.png)
 
 ## Pretrained Model
 
