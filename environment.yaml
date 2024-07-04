@@ -1,4 +1,4 @@
-name: mprenv
+name: maskgit
 channels:
   - pytorch
   - nvidia
